@@ -1,7 +1,10 @@
 #!/usr/bin/env bash
-# displays the content of the file /etc/passwd, using the while loop + IFS.
-
-while IFS=":" read -r USERNAME PASSWORD USER_ID GROUP_ID USER_ID_INFO HOME_DIRECTORY COMMAND_SHELL
+# Parse etc/passwd
+fname="/etc/passwd"
+while IFS=: read -r f1 f2 f3 f4 f5 f6 f7
 do
-    echo "The user $USERNAME is part of the $GROUP_ID gang, lives in $HOME_DIRECTORY and rides $COMMAND_SHELL. $USER_ID's place is protected by the passcode $PASSWORD, more info about the user here: $USER_ID_INFO"
-done < /etc/passwd
+    printf "The user %s is part of the %s gang, lives in %s and rides " "$f1" "$f4" "$f6"
+    printf "%s. %s's place is protected by the passcode %s, more info about the user here:" "$f7" "$f3" "$f2"
+    printf " %s" "$f5"
+    printf "\n"
+done < "$fname"
