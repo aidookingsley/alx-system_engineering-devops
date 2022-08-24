@@ -1,19 +1,22 @@
 #!/usr/bin/env bash
-# loops from 1 to 10 and:
-# displays "bad luck" for the 4th iteration and "good luck" for the 8th iteration.
-# displays "Best School" for the other iterations.
+# Repeat's "Best School" 10 times using while loops.
+# Loops from 1 to 10 and displays:
+#   "bad luck" for the 4th iteration
+#   "good luck" for the 8th iteration
+#   "Best School" for all other iterations
 
-i=1
-while ((i <= 10))
+counter=0
+
+while [ $counter -lt 10 ]
 do
-    if ((i != 4 && i != 8))
-    then
-        echo 'Best School'
-    elif ((i == 4))
-    then
-        echo 'bad luck'
-    else
-        echo 'good luck'
-    fi
-	((i++))
+  if [ $counter -eq 3 ]
+  then
+    echo "bad luck"
+  elif [ $counter -eq 7 ]
+  then
+    echo "good luck"
+  else
+    echo "Best School"
+  fi
+  (( counter++ ))
 done
