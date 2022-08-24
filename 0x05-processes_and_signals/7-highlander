@@ -1,8 +1,12 @@
 #!/usr/bin/env bash
 # loop and echo To infinity and beyond indefinitely.
 
-trap "echo I am invincible!!!" 15
-while true
+trap sigtrap 15
+sigtrap()
+{
+    echo "I am invincible!!!"
+}
+while ((1))
 do
     echo "To infinity and beyond"
     sleep 2
