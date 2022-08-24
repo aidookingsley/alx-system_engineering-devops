@@ -1,9 +1,10 @@
 #!/usr/bin/env bash
-# displays "Best School" 10 times, using the while loop.
+# Repeat's "Best School' ten times using while loop.
 
-i=0
-while ((i < 10))
+counter=0
+
+while [ $counter -lt 10 ]
 do
-	echo 'Best School'
-	((i++))
+  echo "Best School"
+  (( counter++ ))
 done
