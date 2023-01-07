@@ -1,13 +1,15 @@
 #!/usr/bin/env bash
 # Installs, configures, and starts the web server
-sudo apt-get update
+
+sudo apt-get -y update
 sudo apt-get -y install nginx
 sudo ufw allow 'Nginx HTTP'
-mkdir -p /var/www/html/ /var/www/error
+mkdir -p /var/www/html /var/www/error
 chmod -R 755 /var/www
 sudo echo 'Hello World!' > /var/www/html/index.html
 sudo echo -e "Ceci n'est pas une page" > /var/www/error/404.html
 # the server's configuration
+
 SERVER_CONFIG=\
 "server {
 	listen 80 default_server;
